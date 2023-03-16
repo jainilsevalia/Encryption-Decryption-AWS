@@ -2,13 +2,12 @@ const express = require("express");
 require("dotenv").config();
 const app = express();
 const crypto = require("crypto");
-
 const axios = require("axios");
-const { response } = require("express");
-PORT = 3000;
+
+const PORT = 3000;
 
 const robUrl = "http://44.202.179.158:8080/start";
-const myIp = "";
+const myIp = "44.202.210.169:3000";
 
 app.listen(PORT);
 app.use(express.json());
