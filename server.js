@@ -3,7 +3,6 @@ require("dotenv").config();
 const app = express();
 const crypto = require("crypto");
 const axios = require("axios");
-const fs = require("fs");
 
 const PORT = 3000;
 
@@ -31,7 +30,7 @@ app.get("/", (req, res) => {
 
 app.post("/decrypt", (req, res) => {
   //Importing private key from env variables
-  const privateKey = fs.readFileSync("private_key.txt", "utf-8");
+  const privateKey = process.env.PRIVATE_KEY;
   const string = req.body.message;
   console.log(string);
 
@@ -67,7 +66,7 @@ app.post("/encrypt", (req, res) => {
   const utf8String = Buffer.from(encryptString, "utf8");
   console.log(utf8String);
 
-  const publicKey = fs.readFileSync("public_key.txt", "utf-8");
+  const publicKey = process.env.PUBLIC_KEY;
 
   // encrypting utf8 string using public key
   const encryptUsingPublicKey = crypto.publicEncrypt(
