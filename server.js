@@ -36,6 +36,7 @@ app.post("/decrypt", (req, res) => {
 
   //converting base64 String into binary String
   var buf = Buffer.from(string, "base64");
+  console.log(buf);
 
   console.log(privateKey);
 
