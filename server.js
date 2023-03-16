@@ -37,7 +37,6 @@ app.post("/decrypt", (req, res) => {
   //converting base64 String into binary String
   var buf = Buffer.from(string, "base64");
   console.log(buf);
-
   console.log(privateKey);
 
   //decrypting binary data using private key
@@ -46,7 +45,7 @@ app.post("/decrypt", (req, res) => {
       key: privateKey,
       padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
     },
-    buf
+    Buffer.from(string, "base64")
   );
 
   //converting decrypted String into hex
