@@ -2,7 +2,6 @@ const express = require("express");
 const crypto = require("crypto");
 require("dotenv").config();
 const axios = require("axios");
-const { Buffer } = require("node:buffer");
 const app = express();
 
 const PORT = 3000;
@@ -51,10 +50,10 @@ app.post("/decrypt", (req, res) => {
   );
 
   //converting decrypted String into hex
-  const hexString = Buffer.form(decryptedData, "hex");
+  // const hexString = Buffer.form(decryptedData, "hex");
 
   //convert hex into readable form
-  const finalStrign = hexString.toString("utf8");
+  const finalStrign = decryptedData.toString("utf8");
   console.log(finalStrign);
 
   res.status(200).json({ response: finalStrign });
