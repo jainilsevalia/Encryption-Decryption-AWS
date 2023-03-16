@@ -1,8 +1,8 @@
 const express = require("express");
-require("dotenv").config();
-const app = express();
 const crypto = require("crypto");
+require("dotenv").config();
 const axios = require("axios");
+const app = express();
 
 const PORT = 3000;
 
@@ -35,8 +35,9 @@ app.post("/decrypt", (req, res) => {
   console.log(string);
 
   //converting base64 String into binary String
-  var buf = Buffer.from(string, "base64");
+  const buf = Buffer.from(string, "base64");
   console.log(buf);
+
   console.log(privateKey);
 
   //decrypting binary data using private key
@@ -45,7 +46,7 @@ app.post("/decrypt", (req, res) => {
       key: privateKey,
       padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
     },
-    Buffer.from(string, "base64")
+    buf
   );
 
   //converting decrypted String into hex
