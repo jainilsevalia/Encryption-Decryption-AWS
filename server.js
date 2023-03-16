@@ -27,6 +27,10 @@ axios({
     console.log(error);
   });
 
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "server started successfully" });
+});
+
 app.post("/decrypt", (req, res) => {
   //Importing private key from env variables
   const privateKey = process.env.PRIVATE_KEY;
