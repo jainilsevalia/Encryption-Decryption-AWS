@@ -12,14 +12,11 @@ const myIp = "44.202.210.169:3000";
 app.listen(PORT);
 app.use(express.json());
 
-axios({
-  url: robUrl,
-  method: "POST",
-  body: {
+axios
+  .post(robUrl, {
     banner: "B00925445",
     ip: myIp,
-  },
-})
+  })
   .then(function (response) {
     console.log(response);
   })
