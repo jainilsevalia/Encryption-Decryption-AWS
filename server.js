@@ -2,6 +2,7 @@ const express = require("express");
 const crypto = require("crypto");
 require("dotenv").config();
 const axios = require("axios");
+const { Buffer } = require("node:buffer");
 const app = express();
 
 const PORT = 3000;
